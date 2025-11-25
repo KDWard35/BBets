@@ -33,20 +33,45 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 3. How much money would Brownlow be expected to end up with if the bets went as described.
 
 
-
+1.
 ```{r}
-
 n <- 35
+
+# Probability of no shared birthdays
+p_no_match <- prod((365:(365 - n + 1)) / 365)
+
+# Probability of at least one shared birthday
 p_match <- 1 - p_no_match
+
+# Fair odds (ratio of expected loss to win)
 fair_odds <- (1 - p_match) / p_match
 
-
+p_no_match
 p_match
 fair_odds
 
 ```
 
-the odds that at least one birthday is shared is 0.8143832. The fair odds are 0.227923. 
+The odds that at least one birthday is shared is 0.8143832. The fair odds are 0.227923.
+
+
+2.
+```{r}
+target <- 2/3
+
+p_no_match <- 1
+n <- 1
+
+repeat {
+  p_no_match <- p_no_match * (365 - (n - 1)) / 365
+  if (p_no_match <= target) break
+  n <- n + 1
+}
+
+n 
+```
+
+For a class size of 18, there is are 2:1 odds
 
 ## Our strategy is to build a Function and the use it to answer the three questions. 
 
