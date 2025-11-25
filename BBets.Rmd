@@ -32,6 +32,22 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 2. For what size class is a 2:1 odds bet fair.
 3. How much money would Brownlow be expected to end up with if the bets went as described.
 
+
+
+```{r}
+
+n <- 35
+p_match <- 1 - p_no_match
+fair_odds <- (1 - p_match) / p_match
+
+
+p_match
+fair_odds
+
+```
+
+the odds that at least one birthday is shared is 0.8143832. The fair odds are 0.227923. 
+
 ## Our strategy is to build a Function and the use it to answer the three questions. 
 
 The function will be given a class_size by number of students, odds, and Number_of_times brownlow made the bet.  It will give you back how much Brownlows earnings were. We will use it to answer our three questions below. If you can, improve this function by giving default values to some of its inputs. 
